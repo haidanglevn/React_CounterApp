@@ -1,0 +1,10 @@
+footer {
+  background-color: var(--bcred);
+  color: var(--bcpink);
+  font-size: 1.2em;
+  height: 5vh;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

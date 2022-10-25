@@ -1,0 +1,9 @@
+header {
+  background-color: var(--bcred);
+  padding: 20px;
+  color: var(--bcpink);
+  height: 10vh;
+}
+.logo {
+  left: 30px;
+}
