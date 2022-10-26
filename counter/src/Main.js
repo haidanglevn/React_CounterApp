@@ -1,5 +1,6 @@
 import "./Main.css";
 import React, { Component } from "react";
+import Button from "./UI/Button";
 
 class Main extends Component {
   state = {
@@ -30,13 +31,20 @@ class Main extends Component {
   };
   render() {
     let circleClass;
-    if (this.state.counter == 0) {
+    /* if (this.state.counter == 0) {
       circleClass = "circle center";
     } else if (this.state.counter % 2 === 0) {
       circleClass = "circle center even";
     } else {
       circleClass = "circle center odd";
-    }
+    } */
+
+    // alternative
+    this.state.counter === 0
+      ? (circleClass = "circle center")
+      : this.state.counter % 2 === 0
+      ? (circleClass = "circle center even")
+      : (circleClass = "circle center odd");
 
     return (
       <main>
@@ -46,11 +54,11 @@ class Main extends Component {
           </div>
         </div>
         <div className="button-container">
-          <button onClick={this.minusFiveHandler}>- 5</button>
-          <button onClick={this.minusOneHandler}>- 1</button>
-          <button onClick={this.reset}>Reset</button>
-          <button onClick={this.addOneHandler}>+ 1</button>
-          <button onClick={this.addFiveHandler}>+ 5</button>
+          <Button click={this.minusFiveHandler}>- 5</Button>
+          <Button click={this.minusOneHandler}>- 1</Button>
+          <Button click={this.reset}>Reset</Button>
+          <Button click={this.addOneHandler}>+ 1</Button>
+          <Button click={this.addFiveHandler}>+ 5</Button>
         </div>
       </main>
     );
