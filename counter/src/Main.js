@@ -12,19 +12,36 @@ class Main extends Component {
     this.setState({ counter: this.state.counter + 5 });
   };
   minusOneHandler = () => {
-    this.setState({ counter: this.state.counter - 1 });
+    if (this.state.counter <= 0) {
+      this.setState({ counter: (this.state.counter = 0) });
+    } else {
+      this.setState({ counter: this.state.counter - 1 });
+    }
   };
   minusFiveHandler = () => {
-    this.setState({ counter: this.state.counter - 5 });
+    if (this.state.counter <= 4) {
+      this.setState({ counter: (this.state.counter = 0) });
+    } else if (this.state.counter >= 5) {
+      this.setState({ counter: this.state.counter - 5 });
+    }
   };
   reset = () => {
-    this.setState({ counter: (this.state.counter = 0) });
+    this.setState({ counter: this.state.counter - this.state.counter });
   };
   render() {
+    let circleClass;
+    if (this.state.counter == 0) {
+      circleClass = "circle center";
+    } else if (this.state.counter % 2 === 0) {
+      circleClass = "circle center even";
+    } else {
+      circleClass = "circle center odd";
+    }
+
     return (
       <main>
         <div className="center">
-          <div className="circle center">
+          <div className={circleClass}>
             <h1>{this.state.counter}</h1>
           </div>
         </div>
